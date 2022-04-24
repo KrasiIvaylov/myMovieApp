@@ -42,7 +42,7 @@ const Video = props => {
 
     return (
         <div className="video">
-            <div className="video__title">
+            <div className="video_title">
                 <h2>{item.name}</h2>
             </div>
             <iframe

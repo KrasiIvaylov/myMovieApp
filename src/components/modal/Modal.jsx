@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
+
 import "./modal.scss";
 
 const Modal = (props) => {
@@ -11,7 +12,7 @@ const Modal = (props) => {
 
   return (
     <div id={props.id} className={`modal ${active ? "active" : ""}`}>
-      {props.chidren}
+      {props.children}
     </div>
   );
 };
