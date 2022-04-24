@@ -1,3 +1,5 @@
+@use "../../scss/" as *;
+
 button{
     cursor: pointer;
     font-family: $font-family;
