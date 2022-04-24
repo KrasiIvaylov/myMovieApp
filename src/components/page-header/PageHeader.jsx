@@ -1,5 +1,5 @@
 import React from 'react';
-import './page-headers.scss';
+import './page-header.scss';
 import bg from '../../assets/footer-bg.jpg';
 
 const PageHeader = props => {
