@@ -3,6 +3,7 @@ import axiosClient from "./axiosClient";
 export const category = {
   movie: "movie",
   tv: "tv",
+  favourite: "favourite",
 };
 
 export const movieType = {
@@ -44,6 +45,10 @@ const tmdbApi = {
   },
   similar: (cate, id) => {
     const url = category[cate] + "/" + id + "/similar";
+    return axiosClient.get(url, { params: {} });
+  },
+  getFavourite: (cate, id) => {
+    const url = category[cate] + "/" + id + "/favourite";
     return axiosClient.get(url, { params: {} });
   },
 };

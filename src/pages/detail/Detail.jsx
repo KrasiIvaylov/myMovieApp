@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { OutlineButton } from "../../components/button/Button";
+import AddFavouriteMovie from "../../components/favourites/Favourites";
 
 import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
@@ -11,9 +12,6 @@ import VideoList from "./VideoList";
 
 import MovieList from "../../components/movie-list/MovieList";
 
-const addFavouriteMovie = () => {
-  console.log("todo");
-};
 
 const Detail = () => {
   const { category, id } = useParams();
@@ -67,7 +65,7 @@ const Detail = () => {
                   <h2>Casts</h2>
                 </div>
                 <CastList id={item.id} />
-                <OutlineButton onClick={addFavouriteMovie} id={item.id}>
+                <OutlineButton onClick={AddFavouriteMovie}>
                   Add to Favourites
                 </OutlineButton>
               </div>

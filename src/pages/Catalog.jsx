@@ -8,7 +8,7 @@ const Catalog = () => {
   const { category } = useParams();
   return (
     <>
-      <PageHeader>{Catalog === cate.movie ? "Movies" : "Favourites"}</PageHeader>
+      <PageHeader>{Catalog === cate.movie ? "Movies" : "TV Series"}</PageHeader>
       <div className="container">
         <div className="section mb-3">
           <MovieGrid category={category} />
