@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { OutlineButton } from "../../components/button/Button";
 
 import tmdbApi from "../../api/tmdbApi";
 import apiConfig from "../../api/apiConfig";
-import Button, { OutlineButton } from "../../components/button/Button";
 
 import "./detail.scss";
 import CastList from "./CastList";
@@ -11,31 +11,13 @@ import VideoList from "./VideoList";
 
 import MovieList from "../../components/movie-list/MovieList";
 
+const addFavouriteMovie = () => {
+  console.log("todo");
+};
+
 const Detail = () => {
   const { category, id } = useParams();
   const [item, setItem] = useState(null);
-  const [favourites, setFavourites] = useState([]);
-
-  useEffect(() => {
-    const movieFavourites = JSON.parse(
-      localStorage.getItem("react-movie-app-favourites")
-    );
-
-    if (movieFavourites) {
-      setFavourites(movieFavourites);
-    }
-  }, []);
-
-  const saveToLocalStorage = (items) => {
-    localStorage.setItem("react-movie-app-favourites", JSON.stringify(items));
-  };
-
-  const addFavouriteMovie = (movie) => {
-    const newFavouriteList = [...favourites, movie];
-    setFavourites(newFavouriteList);
-    saveToLocalStorage(newFavouriteList);
-    console.log("favourite");
-  };
 
   useEffect(() => {
     const getDetail = async () => {
@@ -82,15 +64,16 @@ const Detail = () => {
               <p className="overview">{item.overview}</p>
               <div className="cast">
                 <div className="section_header">
-                  <h2>Cast</h2>
+                  <h2>Casts</h2>
                 </div>
                 <CastList id={item.id} />
+                <OutlineButton onClick={addFavouriteMovie} id={item.id}>
+                  Add to Favourites
+                </OutlineButton>
               </div>
-              <OutlineButton onClick={addFavouriteMovie}>
-                Add to Favourites
-              </OutlineButton>
             </div>
           </div>
+
           <div className="container">
             <div className="section mb-3">
               <VideoList id={item.id} />
