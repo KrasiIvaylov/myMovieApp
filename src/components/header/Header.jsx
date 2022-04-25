@@ -16,7 +16,7 @@ const headerNav = [
     path: "/movie",
   },
   {
-    display: "TV Series",
+    display: "Favourites",
     path: "/tv",
   },
 ];
@@ -49,7 +49,7 @@ const Header = () => {
       <div className="header_wrap container">
         <div className="logo">
           <img src={logo} alt="" />
-          <Link to="/">tMovies</Link>
+          <Link to="/">Browse Movies</Link>
         </div>
         <ul className="header_nav">
           {headerNav.map((e, i) => (
