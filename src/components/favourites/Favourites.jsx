@@ -1,10 +1,10 @@
 
 
-const AddFavouriteMovie = () => {
-    console.log("todo");
-  };
+// const AddFavouriteMovie = () => {
+//     console.log("todo");
+//   };
 
-  export default AddFavouriteMovie;
+//   export default AddFavouriteMovie;
 
   export async function addToFavorites(movie_id, isFavorite) {
     await fetch('/shows', {

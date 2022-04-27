@@ -12,10 +12,33 @@ import VideoList from "./VideoList";
 
 import MovieList from "../../components/movie-list/MovieList";
 
-
 const Detail = () => {
   const { category, id } = useParams();
   const [item, setItem] = useState(null);
+  const [favourites, setFavourites] = useState([]);
+
+  const AddFavouriteMovie = (movie) => {
+    // useEffect(() => {
+    //   const movieFavourites = JSON.parse(
+    //     localStorage.getItem("react-movie-app-favourites")
+    //   );
+
+    //   if (movieFavourites) {
+    //     setFavourites(movieFavourites);
+    //   }
+    // }, []);
+
+    movie = item.id;
+
+    const saveToLocalStorage = (items) => {
+      localStorage.setItem("favourites", JSON.stringify(items));
+    };
+
+    const newFavouriteList = [...favourites, movie];
+    setFavourites(newFavouriteList);
+    saveToLocalStorage(newFavouriteList);
+    console.log(movie);
+  };
 
   useEffect(() => {
     const getDetail = async () => {
@@ -65,10 +88,10 @@ const Detail = () => {
                   <h2>Casts</h2>
                 </div>
                 <CastList id={item.id} />
-                <OutlineButton onClick={AddFavouriteMovie}>
-                  Add to Favourites
-                </OutlineButton>
               </div>
+              <OutlineButton onClick={AddFavouriteMovie} id={item.id}>
+                Add to Favourites
+              </OutlineButton>
             </div>
           </div>
 
