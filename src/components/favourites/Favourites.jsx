@@ -1,18 +1,20 @@
+// const AddFavouriteMovie = (movie) => {
+//   // useEffect(() => {
+//   //   const movieFavourites = JSON.parse(localStorage.getItem("favourites"));
 
+//   //   if (movieFavourites) {
+//   //     setFavourites(movieFavourites);
+//   //   }
+//   // }, []);
 
-// const AddFavouriteMovie = () => {
-//     console.log("todo");
+//   movie = item.id;
+
+//   const saveToLocalStorage = (items) => {
+//     localStorage.setItem("favourites", items);
 //   };
 
-//   export default AddFavouriteMovie;
-
-  export async function addToFavorites(movie_id, isFavorite) {
-    await fetch('/shows', {
-        method: isFavorite ? 'PUT' : 'POST',
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-          },
-        body: JSON.stringify({id: movie_id})
-    });
-}
+//   const newFavouriteList = [...favourites, movie];
+//   setFavourites(newFavouriteList);
+//   saveToLocalStorage(newFavouriteList);
+//   console.log(movie);
+// };
