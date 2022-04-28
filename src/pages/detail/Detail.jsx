@@ -19,9 +19,7 @@ const Detail = () => {
 
   const AddFavouriteMovie = (movie) => {
     // useEffect(() => {
-    //   const movieFavourites = JSON.parse(
-    //     localStorage.getItem("react-movie-app-favourites")
-    //   );
+    //   const movieFavourites = JSON.parse(localStorage.getItem("favourites"));
 
     //   if (movieFavourites) {
     //     setFavourites(movieFavourites);
@@ -31,7 +29,7 @@ const Detail = () => {
     movie = item.id;
 
     const saveToLocalStorage = (items) => {
-      localStorage.setItem("favourites", JSON.stringify(items));
+      localStorage.setItem("favourites", items);
     };
 
     const newFavouriteList = [...favourites, movie];
@@ -89,7 +87,7 @@ const Detail = () => {
                 </div>
                 <CastList id={item.id} />
               </div>
-              <OutlineButton onClick={AddFavouriteMovie} id={item.id}>
+              <OutlineButton onClick={AddFavouriteMovie}>
                 Add to Favourites
               </OutlineButton>
             </div>
