@@ -17,6 +17,8 @@ const MovieGrid = (props) => {
 
   const { keyword } = useParams();
 
+  const favourites = JSON.parse(localStorage.getItem("favourites"));
+
   useEffect(() => {
     const getList = async () => {
       let response = null;
@@ -29,7 +31,10 @@ const MovieGrid = (props) => {
             });
             break;
           default:
-            response = await tmdbApi.getTvList(tvType.popular, { params });
+            response = await tmdbApi.getMoviesList(movieType.popular, {
+              //:TODO place favourites here
+              params,
+            });
         }
       } else {
         const params = {
@@ -56,7 +61,10 @@ const MovieGrid = (props) => {
           });
           break;
         default:
-          response = await tmdbApi.getTvList(tvType.popular, { params });
+          response = await tmdbApi.getMoviesList(movieType.popular, {
+            //:TODO place favourites here
+            params,
+          });
       }
     } else {
       const params = {

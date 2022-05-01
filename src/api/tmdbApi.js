@@ -1,5 +1,8 @@
 import axiosClient from "./axiosClient";
 
+const favourites = JSON.parse(localStorage.getItem("favourites"));
+
+
 export const category = {
   movie: "movie",
   tv: "tv",
@@ -9,6 +12,7 @@ export const movieType = {
   upcoming: "upcoming",
   popular: "popular",
   top_rated: "top_rated",
+  favourites: "favourites",
 };
 
 export const tvType = {
@@ -46,8 +50,8 @@ const tmdbApi = {
     const url = category[cate] + "/" + id + "/similar";
     return axiosClient.get(url, { params: {} });
   },
-  getId: (id, params) => {
-    const url = "movie/" + id;
+  getFavouriteList: (type, params) => {
+    const url = "movie/" + favourites;
     return axiosClient.get(url, params);
   },
 };
